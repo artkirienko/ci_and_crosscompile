@@ -1,2 +1,10 @@
 language: c
 script: make
+deploy:
+  provider: releases
+  api_key:
+    secure: Rtwk9XE3GOwwGtnH5Jl7L8jQdhkTXcRQNuheeWd4p49JJsAHDbp4ycQoL0Eq7FbhfcPdA357/8z+nfxsWsk5PbgJQ8OaIYk3QbxM+FFvzvBBoemg3H0jXGMqTDEF0IsheM+nVT8etFwG171FCa5I+QgnKwHlw0Zh9hucI8Y03BnUShspxvlx3F/m+O1u5mhHxoYTJ7v3r8wsBMh+qLH2lpW7GAYCqtXiM8uTFT13pC1a+W8tw5Hn0RZj3yoEN+pTkDksQhj4lf3g7b2dHjpBSjXN7Ynimz85HM2Rsg6OBavn+XxobFl3ra5gRBkmh1cgGPqfUIw0nrhksmk5CSrUSi/frDtp8Cy+YhtOSVW9o/tlZPfrm+XE7xG9YJnSu+dh8gjBihe0GOVbUyEZRoNf/n0gynAC8GHl7DiDlZdOyu5V8Xrynp+f32E3g1dz7DEgGy7BRg5v0138zC4s1adbXnSOLB4/ILN2862H4XVKWcU9ITsXQ1/QjtyamOUmvXPWjSi25RnQYATB+SQQlptZgRXtEKsnoLBtjL3eLXe35IwTElokpN9s/pBqgMQt682ImDI4Abb2FMzh8HSbpZ7eXYSj54hgKe6HquKJ79eBo8TV6gUFLPEPwprzLC6kody0NFMwn7huhgxlcz1oMlPSFU8TFUmMr/Zv/u2aTuiuq4Y=
+  file: hello-world
+  on:
+    tags: true
+    repo: artkirienko/just_a_travis_ci_test
