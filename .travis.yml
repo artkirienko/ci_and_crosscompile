@@ -1,4 +1,7 @@
 language: c
+env:
+  global:
+    - MAKEFLAGS="-j 2"
 before_install:
   - sudo apt -qq update
   - sudo apt -y install binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
