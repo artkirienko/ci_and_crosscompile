@@ -38,10 +38,12 @@ OBJECTS_WIN_X86_64=$(SOURCES:.c=.win_x86_64_o)
 EXECUTABLE_WIN_X86_64=hello-world_x86_64.exe
 
 # Default platform
-all: $(SOURCES) $(EXECUTABLE) clean_o
+all: $(SOURCES) $(EXECUTABLE)
+	rm *.o
 
 # Build for every platform at once
-build: $(SOURCES) $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_X86_64) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64) build_clean_o
+build: $(SOURCES) $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_X86_64) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64)
+	rm *.x86_64_o *.x86_32_o *.win_x86_32_o *.win_x86_64_o
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
@@ -76,12 +78,6 @@ $(EXECUTABLE_WIN_X86_64): $(OBJECTS_WIN_X86_64)
 
 .c.win_x86_64_o:
 	$(CC_WIN_X86_64) $(CFLAGS_WIN_X86_64) $< -o $@
-
-clean_o:
-	rm *.o
-
-build_clean_o: $(SOURCES) $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_X86_64) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64)
-	rm *.x86_64_o *.x86_32_o *.win_x86_32_o *.win_x86_64_o
 
 clean:
 	hello-world
