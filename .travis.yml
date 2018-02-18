@@ -1,7 +1,7 @@
 language: c
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
+  - sudo apt -qq update
+  - sudo apt -y install binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
 script: make build
 deploy:
   provider: releases
