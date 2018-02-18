@@ -80,7 +80,7 @@ $(EXECUTABLE_WIN_X86_64): $(OBJECTS_WIN_X86_64)
 clean_o:
 	rm *.o
 
-build_clean_o:
+build_clean_o: $(SOURCES) $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_X86_64) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64)
 	rm *.x86_64_o *.x86_32_o *.win_x86_32_o *.win_x86_64_o
 
 clean:
