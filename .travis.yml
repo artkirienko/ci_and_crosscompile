@@ -2,13 +2,20 @@ language: c
 env:
   global:
     - MAKEFLAGS="-j 2"
-addons:
-  apt:
-    packages:
-      - binutils-mingw-w64
-      - gcc-mingw-w64
-      - gcc-multilib
-script: make build
+matrix:
+  include:
+    - os: linux
+      language: c
+      addons:
+        apt:
+          packages:
+            - binutils-mingw-w64
+            - gcc-mingw-w64
+            - gcc-multilib
+      script: make build
+    - os: osx
+      language: c
+      script: make
 deploy:
   provider: releases
   api_key:
