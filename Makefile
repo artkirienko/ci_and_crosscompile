@@ -98,7 +98,7 @@ $(EXECUTABLE_MAC_OS): $(OBJECTS_MAC_OS)
 	$(CC_MAC_OS) $(CFLAGS_MAC_OS) $< -o $@
 
 clean:
-	hello-world
+	rm $(EXECUTABLE)
 
 build_clean:
 	rm $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64)

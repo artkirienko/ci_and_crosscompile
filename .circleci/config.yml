@@ -2,7 +2,27 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:latest
+      - image: ubuntu:rolling
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run:
+          name: Update Ubuntu packages list
+          command: apt -y update
+      - run:
+          name: Install build-essential
+          command: apt -y install build-essential
+      - run:
+          name: Install MinGW for cross-compile
+          command: apt -y install binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
+      - run:
+          name: Simple build
+          command: make
+      - run:
+          name: Clean after simple build
+          command: make clean
+      - run:
+          name: Build for every platform at once (except macOS)
+          command: make build
+      - run:
+          name: Clean after cross-platform build
+          command: make build_clean
