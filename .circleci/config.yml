@@ -2,15 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:latest
+      - image: ubuntu:rolling
     steps:
       - checkout
       - run:
-          name: Install MinGW for cross-compile
-          command: sudo apt -y install binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
+          name: Update Ubuntu packages list
+          command: apt -y update
       - run:
-          name: Greeting
-          command: echo "A first hello"
+          name: Install build-essential
+          command: apt -y install build-essential
+      - run:
+          name: Install MinGW for cross-compile
+          command: apt -y install binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
       - run:
           name: Simple build
           command: make
