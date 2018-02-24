@@ -39,6 +39,7 @@ EXECUTABLE_WIN_X86_64=hello-world_x86_64.exe
 
 # Default platform
 all: $(SOURCES) $(EXECUTABLE)
+	chmod +x $(EXECUTABLE)
 	rm *.o
 
 # Build for every platform at once
