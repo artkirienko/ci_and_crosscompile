@@ -5,4 +5,9 @@ jobs:
       - image: circleci/ruby:latest
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run:
+          name: Install MinGW for cross-compile
+          command: sudo apt -y install binutils-mingw-w64 gcc-mingw-w64 gcc-multilib
+      - run:
+          name: Greeting
+          command: echo "A first hello"
