@@ -1,4 +1,4 @@
-.SUFFIXES: .x86_64_o .x86_32_o .win_x86_32_o .win_x86_64_o
+.SUFFIXES: .x86_64_o .x86_32_o .win_x86_32_o .win_x86_64_o .mac_os_o
 
 SOURCES=main.c
 
@@ -37,14 +37,24 @@ LDFLAGS_WIN_X86_64=$(LDFLAGS)
 OBJECTS_WIN_X86_64=$(SOURCES:.c=.win_x86_64_o)
 EXECUTABLE_WIN_X86_64=hello-world_x86_64.exe
 
+# macOS
+CC_MAC_OS=gcc
+CFLAGS_MAC_OS=$(CFLAGS)
+LDFLAGS_MAC_OS=$(LDFLAGS)
+OBJECTS_MAC_OS=$(SOURCES:.c=.mac_os_o)
+EXECUTABLE_MAC_OS=hello-world_mac_os
+
 # Default platform
 all: $(SOURCES) $(EXECUTABLE)
-	chmod +x $(EXECUTABLE)
 	rm *.o
 
-# Build for every platform at once
+# Build for every platform at once (except macOS)
 build: $(SOURCES) $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_X86_64) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64)
 	rm *.x86_64_o *.x86_32_o *.win_x86_32_o *.win_x86_64_o
+
+# Build macOS
+build_mac_os: $(SOURCES) $(EXECUTABLE_MAC_OS)
+	rm *.mac_os_o
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
@@ -65,6 +75,10 @@ $(EXECUTABLE_WIN_X86_32): $(OBJECTS_WIN_X86_32)
 $(EXECUTABLE_WIN_X86_64): $(OBJECTS_WIN_X86_64)
 	$(CC_WIN_X86_64) $(LDFLAGS_WIN_X86_64) $(OBJECTS_WIN_X86_64) -o $@
 
+# macOS
+$(EXECUTABLE_MAC_OS): $(OBJECTS_MAC_OS)
+	$(CC_MAC_OS) $(LDFLAGS_MAC_OS) $(OBJECTS_MAC_OS) -o $@
+
 .c.o:
 	$(CC) $(CFLAGS) $< -o $@
 
@@ -80,8 +94,14 @@ $(EXECUTABLE_WIN_X86_64): $(OBJECTS_WIN_X86_64)
 .c.win_x86_64_o:
 	$(CC_WIN_X86_64) $(CFLAGS_WIN_X86_64) $< -o $@
 
+.c.mac_os_o:
+	$(CC_MAC_OS) $(CFLAGS_MAC_OS) $< -o $@
+
 clean:
 	hello-world
 
 build_clean:
 	rm $(EXECUTABLE_X86_64) $(EXECUTABLE_X86_32) $(EXECUTABLE_WIN_X86_32) $(EXECUTABLE_WIN_X86_64)
+
+build_mac_os_clean:
+	rm $(EXECUTABLE_MAC_OS)
