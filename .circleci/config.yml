@@ -14,3 +14,12 @@ jobs:
       - run:
           name: Simple build
           command: make
+      - run:
+          name: Clean after simple build
+          command: make clean
+      - run:
+          name: Build for every platform at once (except macOS)
+          command: make build
+      - run:
+          name: Clean after cross-platform build
+          command: make build_clean
