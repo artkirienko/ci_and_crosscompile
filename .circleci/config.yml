@@ -11,3 +11,6 @@ jobs:
       - run:
           name: Greeting
           command: echo "A first hello"
+      - run:
+          name: Simple build
+          command: make
