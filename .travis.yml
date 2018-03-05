@@ -25,7 +25,7 @@ matrix:
         skip_cleanup: true
         on:
           tags: true
-          repo: artkirienko/just_a_travis_ci_test
+          repo: artkirienko/ci_and_crosscompile
     - os: osx
       language: c
       script: make build_mac_os
@@ -38,4 +38,4 @@ matrix:
         skip_cleanup: true
         on:
           tags: true
-          repo: artkirienko/just_a_travis_ci_test
+          repo: artkirienko/ci_and_crosscompile
