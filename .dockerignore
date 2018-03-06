@@ -1,0 +1,6 @@
+.circleci
+.git
+.gitignore
+.travis.yml
+LICENSE
+README.md
