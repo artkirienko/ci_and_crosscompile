@@ -1,6 +1,9 @@
 .circleci
 .git
+.github
 .gitignore
 .travis.yml
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
 LICENSE
 README.md
