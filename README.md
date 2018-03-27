@@ -3,6 +3,7 @@
 [![IssuesClosed](https://img.shields.io/github/issues-closed/artkirienko/ci_and_crosscompile.svg?style=flat-square)](https://github.com/artkirienko/ci_and_crosscompile/issues)
 [![PullRequestsClosed](https://img.shields.io/github/issues-pr-closed/artkirienko/ci_and_crosscompile.svg?style=flat-square)](https://github.com/artkirienko/ci_and_crosscompile/pulls)
 [![HitCount](http://hits.dwyl.io/artkirienko/ci_and_crosscompile.svg)](http://hits.dwyl.io/artkirienko/ci_and_crosscompile)
+[![Tag](https://img.shields.io/github/tag/artkirienko/ci_and_crosscompile.svg?style=flat-square)](https://github.com/artkirienko/ci_and_crosscompile/releases)
 
 # CI and Cross-compile
 
